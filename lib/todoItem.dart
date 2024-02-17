@@ -3,6 +3,7 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:Todo/boxes.dart';
+import 'package:intl/intl.dart';
 
 class ToDoItem extends StatefulWidget {
   final String text;
@@ -107,16 +108,31 @@ class _ToDoItem extends State<ToDoItem> {
                     ),
                     Expanded(
                       flex: 6,
-                      child: Text(
-                        overflow: TextOverflow.ellipsis,
-                        widget.text,
-                        style: const TextStyle(
-                          //   backgroundColor: Colors.red,
-                          color: Colors.white,
-                          fontSize: 22,
-                          //   fontFamily: 'Lexend_Regular',
-                          fontFamily: 'GT Walsheim Pro Regular',
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            overflow: TextOverflow.ellipsis,
+                            widget.text,
+                            style: const TextStyle(
+                              //   backgroundColor: Colors.red,
+                              color: Colors.white,
+                              fontSize: 22,
+                              //   fontFamily: 'Lexend_Regular',
+                              fontFamily: 'GT Walsheim Pro Regular',
+                            ),
+                          ),
+                          Text(
+                            DateFormat('d MMM y, h:mm a')
+                                .format(todoInfo.getAt(widget.index).time)
+                                .toString(),
+                            style: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 15,
+                            ),
+                          )
+                        ],
                       ),
                     ),
                     const Spacer(),
