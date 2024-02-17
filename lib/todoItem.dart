@@ -2,7 +2,7 @@
 
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/boxes.dart';
+import 'package:Todo/boxes.dart';
 
 class ToDoItem extends StatefulWidget {
   final String text;

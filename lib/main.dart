@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:todo_app/UI.dart';
-import 'package:todo_app/boxes.dart';
-import 'package:todo_app/todo.dart';
+import 'package:Todo/UI.dart';
+import 'package:Todo/boxes.dart';
+import 'package:Todo/todo.dart';
 
 void main() async {
   await Hive.initFlutter();

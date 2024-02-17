@@ -1,8 +1,8 @@
 // ignore_for_file: file_names, non_constant_identifier_names
 import 'package:flutter/material.dart';
-import 'package:todo_app/boxes.dart';
-import 'package:todo_app/todo.dart';
-import 'package:todo_app/todoItem.dart';
+import 'package:Todo/boxes.dart';
+import 'package:Todo/todo.dart';
+import 'package:Todo/todoItem.dart';
 
 class UI extends StatefulWidget {
   const UI({super.key});
