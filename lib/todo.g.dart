@@ -19,17 +19,20 @@ class TodoAdapter extends TypeAdapter<Todo> {
     return Todo(
       text: fields[0] as String,
       time: fields[1] as DateTime,
+      isChecked: fields[2] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, Todo obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.text)
       ..writeByte(1)
-      ..write(obj.time);
+      ..write(obj.time)
+      ..writeByte(2)
+      ..write(obj.isChecked);
   }
 
   @override

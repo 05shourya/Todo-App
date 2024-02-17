@@ -9,5 +9,8 @@ class Todo extends HiveObject {
 
   @HiveField(1)
   DateTime time;
-  Todo({required this.text, required this.time});
+
+  @HiveField(2)
+  bool isChecked;
+  Todo({required this.text, required this.time, required this.isChecked});
 }

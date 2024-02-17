@@ -42,6 +42,9 @@ class _ToDoItem extends State<ToDoItem> {
         child: Column(
           children: [
             GestureDetector(
+              onDoubleTap: () {
+                print(todoInfo.getAt(widget.index).isChecked);
+              },
               onTap: () {
                 showDialog(
                     context: context,
@@ -55,11 +58,13 @@ class _ToDoItem extends State<ToDoItem> {
                     });
               },
               onLongPress: () {
-                if (!isChecked) {
+                if (!todoInfo.getAt(widget.index).isChecked) {
                   _confettiController.play();
                 }
                 setState(() {
-                  isChecked = !isChecked;
+                  todoInfo.getAt(widget.index).isChecked =
+                      !todoInfo.getAt(widget.index).isChecked;
+                  todoInfo.getAt(widget.index).save();
                 });
               },
               child: Container(
@@ -82,14 +87,16 @@ class _ToDoItem extends State<ToDoItem> {
                     Transform.scale(
                       scale: 1.5,
                       child: Checkbox(
-                        value: isChecked,
+                        value: todoInfo.getAt(widget.index).isChecked,
                         onChanged: (bool? value) {
                           setState(
                             () {
-                              if (!isChecked) {
+                              if (!todoInfo.getAt(widget.index).isChecked) {
                                 _confettiController.play();
                               }
-                              isChecked = value ?? false;
+                              todoInfo.getAt(widget.index).isChecked =
+                                  value ?? false;
+                              todoInfo.getAt(widget.index).save();
                             },
                           );
                         },

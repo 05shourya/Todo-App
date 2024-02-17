@@ -19,6 +19,7 @@ class _UI extends State<UI> {
         Todo(
           text: addTodoController.text.toString(),
           time: DateTime.now(),
+          isChecked: true,
         ),
       );
       setState(() {});
